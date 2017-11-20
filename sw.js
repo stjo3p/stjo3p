@@ -1,4 +1,4 @@
-let version = '0.0.1.20';
+let version = '0.0.1';
 
 self.addEventListener('install', e => {
   let timeStamp = Date.now();
