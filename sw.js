@@ -8,13 +8,13 @@ self.addEventListener('install', e => {
         `/`,
         `/index.html?timestamp=${timeStamp}`,
         `/styles/main.css?timestamp=${timeStamp}`,
-        `/images/Icon-36.png?timestamp=${timeStamp}`,
-        `/images/Icon-48.png?timestamp=${timeStamp}`,
-        `/images/Icon-72.png?timestamp=${timeStamp}`,
-        `/images/Icon-96.png?timestamp=${timeStamp}`,
-        `/images/Icon-144.png?timestamp=${timeStamp}`,
-        `/images/Icon-192.png?timestamp=${timeStamp}`,
-        `/images/Icon-512.png?timestamp=${timeStamp}`
+        `/images/icons/Icon-36.png?timestamp=${timeStamp}`,
+        `/images/icons/Icon-48.png?timestamp=${timeStamp}`,
+        `/images/icons/Icon-72.png?timestamp=${timeStamp}`,
+        `/images/icons/Icon-96.png?timestamp=${timeStamp}`,
+        `/images/icons/Icon-144.png?timestamp=${timeStamp}`,
+        `/images/icons/Icon-192.png?timestamp=${timeStamp}`,
+        `/images/icons/Icon-512.png?timestamp=${timeStamp}`
       ])
       .then(() => self.skipWaiting());
     })
