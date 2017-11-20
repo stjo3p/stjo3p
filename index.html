@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang=en-GB>
+  <head>
+    <meta charset='utf-8'>
+    <title>Lampe</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='description' content='Lampe WiFi RGB'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='manifest' href='manifest.json'>
+    <meta name='mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='application-name' content='Lampe'>
+    <meta name='apple-mobile-web-app-status-bar-style' content='black'>
+    <meta name='apple-mobile-web-app-title' content='Lampe'>
+
+    <!-- NEW -->
+    <link rel='icon' sizes='36x36' href='/images/icons/Icon-36.png'>
+    <link rel='icon' sizes='48x48' href='/images/icons/Icon-48.png'>
+    <link rel='icon' sizes='72x72' href='/images/icons/Icon-72.png'>
+    <link rel='icon' sizes='96x96' href='/images/icons/Icon-96.png'>
+    <link rel='icon' sizes='144x144' href='/images/icons/Icon-144.png'>
+    <link rel='icon' sizes='192x192' href='/images/icons/Icon-192.png'>
+    <link rel='icon' sizes='512x512' href='/images/icons/Icon-512.png'>
+
+    <link rel='apple-touch-icon' href='/images/icons/Icon-192.png'>
+    <meta name='msapplication-TileImage' content='/images/icons/Icon-144.png'>
+    
+
+    <meta name='msapplication-TileColor' content='#f3212d'>
+    <meta name='theme-color' content='#f3212d'>
+    <meta property='og:title' content='Lampe'>
+    <meta property='og:type' content='website'>
+    <meta property='og:image' content='/images/icons/Icon-192.png'>
+    <meta property='og:url' content='https://devloop.fr/'>
+    <meta property='og:description' content='Lampe'>
+
+    <!--END -->
+    <link rel='stylesheet' href='styles/main.css'>
+  </head>
+  <body>
+    <div id='container'>
+      <p>1.2</p>
+    </div>
+    <div id='buttons'>
+      <button id="install" class='button'>Install</button>
+      <button id ="update" class='button'>Update</button>
+      <button id ="delete" class='button'>Delete</button>
+      <span class='tooltip'></span>
+    </div>
+
+    <script>
+      buttonInstall = document.getElementById("install");
+      buttonUpdate = document.getElementById("update");
+      buttonDelete = document.getElementById("delete");
+
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+          .then(function(registration) {
+                console.log('Service Worker Registered');
+
+              buttonUpdate.onclick = function() {
+              registration.update();
+              console.log('Service Worker Updated');
+          }
+
+          });
+
+        navigator.serviceWorker.ready.then(function(registration) {
+           console.log('Service Worker Ready');
+        });
+      }
+
+
+      buttonDelete.onclick = function() {
+            caches.delete('lampeapp').then(function(response) {
+                console.log('Service Worker Deleted');
+            })
+      }
+
+    </script>
+  </body>
+</html>
