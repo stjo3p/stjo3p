@@ -14,7 +14,7 @@ self.addEventListener('install', e => {
         `/images/Icon-96.png?timestamp=${timeStamp}`,
         `/images/Icon-144.png?timestamp=${timeStamp}`,
         `/images/Icon-192.png?timestamp=${timeStamp}`,
-        `/images/Icon-512.png?timestamp=${timeStamp}`,
+        `/images/Icon-512.png?timestamp=${timeStamp}`
       ])
       .then(() => self.skipWaiting());
     })
